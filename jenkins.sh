@@ -6,10 +6,7 @@ echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
 sudo apt-get install openjdk-11-jre -y
 sudo apt-get install jenkins -y
 sudo apt-get install docker.io -y
-curl -fsSL https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-archive-keyring.gpg
-echo "deb [signed-by=/etc/apt/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
 sudo apt-get update -y
-sudo apt-get install kubectl
 sudo apt-get upgrade -y
 sudo systemctl start jenkins
 sudo systemctl enable jenkins
@@ -19,4 +16,3 @@ git --version
 java --version
 jenkins --version
 docker --version
-kubectl version --output=yaml
