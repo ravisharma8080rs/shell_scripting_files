@@ -1,3 +1,4 @@
+cp /home/ubuntu/jenkins.sh /usr/bin/
 sudo wget -O /usr/share/keyrings/jenkins-keyring.asc \
     https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
 echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
