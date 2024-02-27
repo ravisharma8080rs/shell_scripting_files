@@ -13,10 +13,8 @@ sudo apt-get install kubectl
 sudo apt-get upgrade -y
 sudo systemctl start jenkins
 sudo systemctl enable jenkins
-sudo systemctl status jenkins
 sudo systemctl start docker
 sudo systemctl enable docker
-sudo systemctl status docker
 git --version
 java --version
 jenkins --version
