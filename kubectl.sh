@@ -7,7 +7,8 @@ sudo apt-get upgrade -y
 sudo apt-get install kubeadm=1.20.0-00 kubectl=1.20.0-00 kubelet=1.20.0-00 -y
 kubectl version --short
 kubeadm version --output=yaml
-echo ("Docker checking and installation starting")
+clear
+sleep 10
 count=$(apt list --installed | grep docker | wc -l)
 if [ $count -eq 1 ]
 then
@@ -16,7 +17,7 @@ else
         sudo apt-get install docker.io -y
 	sudo systemctl start docker
 	sudo systemctl enable docker
+	docker --version
 fi
-docker --version
 sudo docker info
 
