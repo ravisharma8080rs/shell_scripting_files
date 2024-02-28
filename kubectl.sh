@@ -1,6 +1,6 @@
 sudo apt-get update -y
 clear
-sleep 5
+sleep 2
 count=$(apt list --installed | grep docker | wc -l)
 if [ $count -eq 1 ]
 then
@@ -11,8 +11,8 @@ else
 	sudo systemctl enable docker
 	docker --version
 fi
-sudo docker info
-sleep 10
+sudo docker info >> dockerinfo.txt
+sleep 2
 clear
 sudo apt-get install -y apt-transport-https ca-certificates curl
 curl -fsSL https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-archive-keyring.gpg
