@@ -19,10 +19,10 @@ clear
 echo "kubernets installation has been start !"
 sleep 2
 sudo apt-get install -y apt-transport-https ca-certificates curl
-curl -fsSL https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-archive-keyring.gpg
-echo "deb [signed-by=/etc/apt/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
+echo "Downloading the public signing key for the Kubernetes package repositories"
+curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.29/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
+echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.20/deb/ /' | sudo tee /etc/apt/sources.list.d/kubernetes.list
 sudo apt-get update -y
-sudo apt-get upgrade -y
 sudo apt-get install kubeadm=1.20.0-00 kubectl=1.20.0-00 kubelet=1.20.0-00 -y
 sleep 2
 kubeadm version --output=yaml >> kubeadminfo.txt
